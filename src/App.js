@@ -14,7 +14,7 @@ function App() {
           <Route path="/" exact component={ShowListItemScreen} />
           <Route path="/add" exact component={AddItemScreen} />
           <Route path="/delete/:id" exact component={DeleteItemScreen} />
-          <Route path="/detail" exact component={ItemDetailScreen} />
+          <Route path="/detail/:id" exact component={ItemDetailScreen} />
 
 			</main>
 		
