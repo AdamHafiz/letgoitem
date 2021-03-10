@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
+import axios from 'axios'
 const randomInt = require('random-int');
-const axios = require('axios').default;
+
 export default function AddItemScreen() {
 
   const [image1, setImage1] = useState("")
