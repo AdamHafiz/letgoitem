@@ -13,7 +13,7 @@ function App() {
 			<main className="py-3">
           <Route path="/" exact component={ShowListItemScreen} />
           <Route path="/add" exact component={AddItemScreen} />
-          <Route path="/delete/:id" exact component={DeleteItemScreen} />
+          <Route path="/delete" exact component={DeleteItemScreen} />
           <Route path="/detail/:id" exact component={ItemDetailScreen} />
 
 			</main>
