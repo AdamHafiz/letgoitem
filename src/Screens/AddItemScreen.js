@@ -57,8 +57,8 @@ export default function AddItemScreen() {
      return
    }
 
-   axios.post('http://localhost:8008/add', {
-    id,item,desc,price,name,image1,image2,image3,image4,image5,image6,image7,image8
+   axios.post('http://165.232.174.53/add', {
+    id,item,description:desc,price,name,link1:image1,link2:image2,link3:image3,link4:image4,link5:image5,link6:image6,link7:image7,link8:image8
   })
   .then(function (response) {
     alert("dah add dah data")

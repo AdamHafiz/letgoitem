@@ -1,46 +1,42 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import ListingItem from '../components/ListingItem'
-
+import axios from 'axios';
 
 
 export default function ShowListItemScreen() {
-  const result = {
-    "row": [
-        {
-            "id": 2355542,
-            "item": "pasu bunga",
-            "link1": "url",
-            "price": 70,
-            "booked": 0
-        },
-        {
-            "id": 23777742,
-            "item": "tv",
-            "link1": "url",
-            "price": 10000,
-            "booked": 0
-        },
-        {
-            "id": 23318882,
-            "item": "kasut",
-            "link1": "url",
-            "price": 7000,
-            "booked": 1
-        }
-    ]
-}
-  return (
+
+  const [result, setResult] = useState([])
+
+  useEffect(() => {
+    getData();
+  }, [])
+
+  const getData =() => {
+    axios.get('http://165.232.174.53/',)
+    .then(function (response) {
+      console.log(response.data.row);
+      setResult(response.data.row.reverse())
+
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    .then(function () {
+    });  
+  }
+
+ 
+     return (
+  
         <div>
-            <div class="grid grid-cols-8 divide-y divide-gray-400">
-              <div class="col-span-2 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Image</div>
-              <div class="col-span-2 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Item</div>
-              <div class="col-span-2 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</div>
-              <div class="col-span-2 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</div>
-            </div>
+              <h2 className="text-gray-700 font-bold text-2xl m-3 md:m-10 text-center  ">Let go item</h2>
+              <h2 className="text-gray-700 font-bold text-sm m-3 md:m-10 text-center  ">Kouhaitachis boleh book barang2 yg berminat, nnti senpai akan pm kouhai</h2>
             
-          {result.row.map(element =>  <ListingItem data= {element} /> )}
+          {result.map(element =>  <ListingItem data= {element} /> )}
         </div>
             
   
   )
+
+ 
 }
